@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'crispy_bootstrap4',
     'django_countries',
 
     'core'
@@ -32,6 +33,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'djecommerce.urls'
@@ -67,6 +69,8 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
+# Use the console backend to print emails to the terminal
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Auth
 
